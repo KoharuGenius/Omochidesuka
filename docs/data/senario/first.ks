@@ -35,6 +35,23 @@
     [font size="40" bold="true"]%text[resetfont]
 [endmacro]
 
+;前景レイヤー上に文字を表示
+(back)
+;最後に必ずtransを使うこと
+[macro name="disptext"]
+    [ptext layer="0" page="back" x=0 y=%y width=1024 align="center" size=%size text=%text color="0xFFFFFF"]
+[endmacro]
+
+
+;前景レイヤー上にアイテム表示
+[macro name="dispitem"]
+    @freeimage layer="1"
+    [image layer="1" x=200 y=100 width=300 height=300 storage=%storage time=1500]
+[endmacro]
+
+[macro name="eraseitem"]
+    @freeimage layer="1"
+[endmacro]
 
 
 ;タイトル画面へ移動
