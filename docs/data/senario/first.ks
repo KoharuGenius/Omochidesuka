@@ -53,7 +53,6 @@
     @freeimage layer="1"
 [endmacro]
 
-
 ;タイトル画面へ移動
 @jump storage="title.ks"
 
