@@ -12,8 +12,17 @@
 ;ゲームで必ず必要な初期化処理はこのファイルに記述するのがオススメ
 [chara_new name="nozomi" storage="./chara/nzmdefault.png" jname="のぞみ"]
 
-
-
+[chara_face name="nozomi" face="eee" storage="./chara/nzmeee.png"]
+[chara_face name="nozomi" face="serious" storage="./chara/nzmserious.png"]
+[chara_face name="nozomi" face="serious2" storage="./chara/nzmserious2.png"]
+[chara_face name="nozomi" face="tere" storage="./chara/nzmtere.png"]
+[chara_face name="nozomi" face="tere2" storage="./chara/nzmtere2.png"]
+[chara_face name="nozomi" face="smile2" storage="./chara/nzmsmile2.png"]
+[chara_face name="nozomi" face="mg10" storage="./chara/nzmmg10.png"]
+[chara_face name="nozomi" face="shobon" storage="./chara/nzmshobon.png"]
+[chara_face name="nozomi" face="ikari" storage="./chara/nzmikari.png"]
+[chara_face name="nozomi" face="kirari" storage="./chara/nzmkirari.png"]
+[chara_face name="nozomi" face="coffee" storage="./chara/nzmcoffee.png"]
 
 ;メッセージウィンドウの設定
 [position layer="message0" left=160 top=500 width=1000 height=200 page=fore visible=true]
@@ -26,6 +35,10 @@
 
 ;上記で定義した領域がキャラクターの名前表示であることを宣言（これがないと#の部分でエラーになります）
 [chara_config ptext="chara_name_area"]
+
+; popopo設定　少しポップで明るい印象（三角波）
+[popopo type="none"]
+[popopo type="triangle" frequency="E" octave="1" time="80" tailtime="20" chara="のぞみ"]
 
 ;メッセージボックスは非表示
 @layopt layer="message0" visible=false
@@ -68,9 +81,10 @@
 
 ;サブルーチン
 ;ぬいぐるみ表示、のぞみ移動
-*sub_dispshimejin
+*sub_showshimejin
 #
 [cm]
+@playse storage="shupan.mp3" 
 @chara_move name="nozomi" left="+=200"
 @dispitem storage="shimejin_nui.jpg"
 @layopt layer="1" visible="true"

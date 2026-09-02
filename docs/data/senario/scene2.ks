@@ -514,6 +514,7 @@
 
 
 ;しめじん表示
+[call target="sub_showshimejin" storage="first.ks"]
 …【🍄しめじん】、こんなにかわいいのに…[p]
 
 ですから！【🍄しめじん】も頑張ってポイント貯めて[r]
@@ -543,6 +544,7 @@
 もっと大事にしてくれる人にもらわれていった方がいいと思う[p]
 
 ;しめじん消去
+[call target="sub_hideshimejin" storage="first.ks"]
 
 #のぞみ
 【100円商品券】とも交換できるんですが…[p]
@@ -600,7 +602,9 @@
 ;
 ;ガーンSE
 ;画面反転、揺れ
-＃僕
+@filter layer="all" invert="100"
+@quake count=3 time=600 vmax=50 wait="false"
+#僕
 えーーーーーーっ！？[p]
 
 #店長
@@ -676,7 +680,7 @@
 今自分で作りました！[r]
 カード作ってもらったの初めてだから嬉しくて！[p]
 
-[call target="sub_dispshimejin" storage="first.ks"]
+[call target="sub_showshimejin" storage="first.ks"]
 
 ちゃんと使ってくださいよ！[l][r]
 ポイント貯めて【🍄しめじん】ゲットしてくださいね！[p]
@@ -760,11 +764,14 @@
 今、持っているのは……[p]
 
 ;のぞみ真顔
+
 [dekamoji]のぞみちゃんへの僕の【気持ち】だッ！！[resetfont]
 ;
 ;画面揺れ
 ;ドーンSE
 ;餅の山表示
+
+@quake count=3 time=800 vmax=50 wait="true"
 [p]
 
 #のぞみ
