@@ -64,14 +64,35 @@
 [endmacro]
 
 
-;前景レイヤー上にアイテム表示
-[macro name="dispitem"]
+
+;前景レイヤー中央にアイテム表示
+[macro name="showcenteritem"]
     @freeimage layer="1"
-    [image layer="1" x=200 y=100 width=300 height=300 storage=%storage time=300]
+    @layopt layer="1" visible="true"
+    [image layer="1" x=400 y=50 width=400 height=400 storage=%storage time=300]
 [endmacro]
 
 [macro name="hideitem"]
     @freeimage layer="1"
+[endmacro]
+
+;前景レイヤー左側にアイテム表示
+[macro name="showitemslide"]
+#
+[cm]
+@playse storage="shupan.mp3" 
+@chara_move name="nozomi" left="+=200"
+@freeimage layer="1"
+[image layer="1" x=200 y=100 width=300 height=300 storage=%storage time=300]
+@layopt layer="1" visible="true"
+[endmacro]
+
+;ぬいぐるみ消える、のぞみ戻る
+[macro name="hideitemslide"]
+#
+[cm]
+@layopt layer="1" visible="false"
+@chara_move name="nozomi" left="-=200"
 [endmacro]
 
 ;タイトル画面へ移動
@@ -80,20 +101,10 @@
 [s]
 
 ;サブルーチン
-;ぬいぐるみ表示、のぞみ移動
-*sub_showshimejin
-#
-[cm]
-@playse storage="shupan.mp3" 
-@chara_move name="nozomi" left="+=200"
-@dispitem storage="shimejin_nui.jpg"
-@layopt layer="1" visible="true"
+;入店チャイム
+*sub_entershop
+@playse storage="entershop.mp3"
+[wse]
+@playse storage="entershop.mp3"
 [return]
 
-;ぬいぐるみ消える、のぞみ戻る
-*sub_hideshimejin
-#
-[cm]
-@layopt layer="1" visible="false"
-@chara_move name="nozomi" left="-=200"
-[return]

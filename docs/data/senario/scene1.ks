@@ -12,9 +12,7 @@
 ;
 ; 入店チャイム
 ;
-@playse storage="entershop.mp3"
-[wse]
-@playse storage="entershop.mp3"
+@sub_entershop
 #僕
 （昼休み。オフィス近くのいつものお店）[p]
 （レジに立っていたのは）[r]
@@ -30,7 +28,7 @@
 @chara_show name="nozomi"
 
 ;**** for debug *****
-;@jump target="q1a"
+@jump target="q1c"
 
 #のぞみ
 [dekamoji]いらっしゃいませ～[resetfont][p]
@@ -87,7 +85,7 @@
 へえ…[p]
 
 ;しめじん表示
-[call target="sub_showshimejin" storage="first.ks"]
+@sub_showitemslide" storage="shimejin_nui"
 
 #のぞみ:tere
 わたしが徹夜で作りました！[p]
@@ -108,11 +106,10 @@
 ポイントが貯まったら【🍄しめじん】がもらえちゃうんです！[p]
 
 #のぞみ:serious2
-これは大大大ちゃ〜〜んすっ！！！[p]
+これは大・大・大ちゃ〜〜んすっ！！！[p]
 ;しめじん消去
-[call target="sub_hideshimejin" storage="first.ks"]
+@sub_hidesitemslide
 
-#のぞみ:default
 ……ということで、[p]
 
 *q1
@@ -139,7 +136,7 @@
 
 #のぞみ:serious2
 さようでございましたかっ！[p]
-#のぞみ:defalut
+#のぞみ:default
 …それなら、お作りしましょうかぁ？[p]
 
 #僕
@@ -205,7 +202,7 @@
 
 #のぞみ:smile2
 はい、きなこと黒蜜のハーモニーが絶妙な…[l][r]
-#のぞみ:serious2
+#のぞみ:ikari
 そう～じゃなくて～！[p]
 当店の[dekamoji]ポイントカード[resetfont]のことですよ！[p]
 
@@ -234,7 +231,7 @@
 #僕
 [dekamoji]人[resetfont]という漢字はだな…[p]
 
-#のぞみ
+#のぞみ:ikari
 それ武田違い！[r]
 …っていうか、いつの時代のドラマですか！[p]
 
@@ -248,13 +245,13 @@
 #僕
 謙信餅をば、所持つかまつりにて候[p]
 
-#のぞみ
+#のぞみ:mg10
 ？？？[p]
 
 #僕
 信玄餅があるなら、謙信餅があっても良いと思わないか！[p]
 
-#のぞみ
+#のぞみ:shobon
 ごめんなさい[r]
 わたし、生物の授業はニガテだったんですぅ…[p]
 
@@ -263,20 +260,24 @@
 …ともかく[r]
 謙信餅があったら新潟県民も喜ぶに相違なく候[p]
 
-#のぞみ
+#のぞみ:mg10
 笹団子の立場は…[p]
 
 #僕
 まあ、百聞は一見に如かずだ[r]
 召されてみよ[p]
 
-#のぞみ
+#のぞみ:serious2
 あ、はい……[l][r]
 もぐもぐ…[p]
 ;反転
 ;ガーンSE
+@filter name="nozomi" invert=100
 ………！！！……！[p]
 ;反転戻し
+@filter name="nozomi" invert=0
+@free_filter layer="all" name="nozomi"
+#のぞみ:shobon
 ナニコレ？しょっぱ～い！！！[p]
 
 #僕
@@ -296,7 +297,7 @@
 ; Q2
 ;
 *q2
-#のぞみ
+#のぞみ:shobon
 うぅ…わたし、何かヘンなこと言いましたか？
 
 ;---
@@ -349,7 +350,7 @@
 #のぞみ:serious2
 でもっ！[l][r]
 ;しめじん表示
-[call target="sub_showshimejin" storage="first.ks"]
+@showitemslide storage="shimejin_nui.jpg"
 
 【🍄しめじん】はポイントカードの景品ですからね！[p]
 #のぞみ:serious
@@ -366,7 +367,7 @@
 大事にしてくれる人の所に行くといいね[p]
 
 ;しめじん消去
-[call target="sub_hideshimejin" storage="first.ks"]
+@hideitemslide
 #のぞみ
 はい…[p]
 
@@ -420,18 +421,17 @@
 うぅ…喉に…[p]
 
 の……、飲み物…[p]
-
-@freefilter name="nozomi"
-@chara_mod name="nozomi" face="mg10"
+@filter name="nozomi" invert=0
+@free_filter layer="all" name="nozomi"
+#のぞみ:serious2
 あった！[r]
 ゴクゴクゴク…[p]
 
 #僕
 ボクノ…[r]
 Coffee…[p]
-@free_filter name="nozomi"
 
-#のぞみ:cofee
+#のぞみ:coffee
 ;画面揺らし
 @quake count=5 time=800 vmax=50 wait="false"
 BOOOOOOOOOOOOOOOOOO!!!!![p]
@@ -443,13 +443,13 @@ BOOOOOOOOOOOOOOOOOO!!!!![p]
 #僕
 10万158円だったよね？[p]
 
-#のぞみ
+#のぞみ:serious
 ポイントで還元させていただきますので！[p]
 
 #僕
 …………[p]
 
-#のぞみ
+#のぞみ:default
 [dekamoji]お客様、当店のカードはおもちですか？[resetfont][p]
 
 #僕
@@ -464,14 +464,14 @@ BOOOOOOOOOOOOOOOOOO!!!!![p]
 #僕
 このお店のカードってお餅なんだ？[p]
 
-#のぞみ
+#のぞみ:ikari
 ちっ…、ちがいますよぉ～！[p]
 れっきとした【プラスチックのカード】です！[p]
 
 #僕
 それでいいのか？[p]
 
-#のぞみ
+#のぞみ:serious2
 どういうことでしょう？[p]
 
 #僕
@@ -479,9 +479,9 @@ BOOOOOOOOOOOOOOOOOO!!!!![p]
 脱プラスチックが叫ばれている時代じゃないかッ！[p]
 
 …だから[l][r]
-[dekamoji]ポイントカードも餅にすればいい！[resetfont]][p]
+[dekamoji]ポイントカードも餅にすればいい！[resetfont][p]
 
-#のぞみ
+#のぞみ:eee
 えーーーーっ！？[p]
 
 #僕
@@ -489,7 +489,7 @@ BOOOOOOOOOOOOOOOOOO!!!!![p]
 いざという時や特別な時に使えばいい！[p]
 まさにポイントカードの思想だと思わないかね？[p]
 
-#のぞみ
+#のぞみ:serious
 ……お餅でもいい気がしてきました[p]
 
 #僕
@@ -505,7 +505,7 @@ BOOOOOOOOOOOOOOOOOO!!!!![p]
 えっ！？[p]
 ………。[p]
 
-@chara_show name="nozomi"
+@chara_show name="nozomi" face="shobon"
 #のぞみ
 ……却下されちゃいましたぁ～[p]
 
@@ -513,7 +513,7 @@ BOOOOOOOOOOOOOOOOOO!!!!![p]
 だろうな[r]
 社会とはそういうものだよ。のぞみクン[p]
 
-#のぞみ
+#のぞみ:serious
 でも、私が徹夜でお餅カードのサンプルを作れば[r]
 店長も考え直してくれるかも……[p]
 
@@ -521,7 +521,7 @@ BOOOOOOOOOOOOOOOOOO!!!!![p]
 ……ごめん[p]
 僕が擦りすぎた[p]
 
-#のぞみ
+#のぞみ:smile2
 い…いえいえ！[r]
 私もお客様からの貴重なご意見だと思いましたから！[p]
 
