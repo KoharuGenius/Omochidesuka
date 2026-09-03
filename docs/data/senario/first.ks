@@ -107,4 +107,3 @@
 [wse]
 @playse storage="entershop.mp3"
 [return]
-

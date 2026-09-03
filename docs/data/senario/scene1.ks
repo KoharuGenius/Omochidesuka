@@ -12,7 +12,7 @@
 ;
 ; 入店チャイム
 ;
-@sub_entershop
+@call target="sub_entershop" storage="first.ks"
 #僕
 （昼休み。オフィス近くのいつものお店）[p]
 （レジに立っていたのは）[r]
@@ -28,7 +28,7 @@
 @chara_show name="nozomi"
 
 ;**** for debug *****
-@jump target="q1c"
+;@jump target="q1c"
 
 #のぞみ
 [dekamoji]いらっしゃいませ～[resetfont][p]
@@ -85,7 +85,7 @@
 へえ…[p]
 
 ;しめじん表示
-@sub_showitemslide" storage="shimejin_nui"
+@showitemslide storage="shimejin_nui.jpg"
 
 #のぞみ:tere
 わたしが徹夜で作りました！[p]
@@ -108,7 +108,7 @@
 #のぞみ:serious2
 これは大・大・大ちゃ〜〜んすっ！！！[p]
 ;しめじん消去
-@sub_hidesitemslide
+@hideitemslide
 
 ……ということで、[p]
 
