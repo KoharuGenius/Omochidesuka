@@ -34,7 +34,7 @@
 [dekamoji]いらっしゃいませ～[resetfont][p]
 
 ;BGM開始
-@playbgm storage="candybouquet.mp3" volume=30
+@playbgm storage="candybouquet.mp3" volume=25
 
 #僕
 （手早く昼飯をカゴに入れて、レジに持っていく）[p]
@@ -326,7 +326,7 @@
 
 #のぞみ
 そっ、そんなに見つめないでください…[p]
-@quake name="nozomi" count=4 time=500 hmax=50 vmax=0 wait="false" 
+@quake name="nozomi" count=2 time=900 hmax=50 vmax=0 wait="false" 
 ドキドキして…[l][r]
 恥ずかしい…です…[p]
 
@@ -335,7 +335,9 @@
 
 ;画面揺れ
 #のぞみ:mg10
+@quake name="nozomi" count=5 time=500 hmax=0 vmax=50 wait="false" 
 ヽ(・ω・)/ｽﾞｺｰ[p]
+
 #のぞみ:tere2
 なんだぁ…[r]
 はははは…[p]
@@ -353,14 +355,15 @@
 @showitemslide storage="shimejin_nui.jpg"
 
 【🍄しめじん】はポイントカードの景品ですからね！[p]
+
 #のぞみ:serious
-……今はあげませんよっ！[p]
+今はあげませんよっ！[p]
 
 #僕
 欲しいって言ってないよ[p]
 
 #のぞみ:shobon
-だけど【🍄しめじん】、[r]
+……だけど【🍄しめじん】、[r]
 いつかは誰かにもらわれていっちゃうのかなぁ…[p]
 
 #僕

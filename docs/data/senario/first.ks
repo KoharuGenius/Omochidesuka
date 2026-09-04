@@ -38,7 +38,7 @@
 
 ; popopo設定　少しポップで明るい印象（三角波）
 [popopo type="none"]
-[popopo type="triangle" frequency="E" octave="1" time="80" tailtime="20" chara="のぞみ"]
+[popopo type="triangle" volume="40" frequency="E" octave="1" mode="interval" chara="のぞみ"]
 
 ;メッセージボックスは非表示
 @layopt layer="message0" visible=false
@@ -63,6 +63,9 @@
     [ptext layer="0" page="back" x=0 y=%y width="&TYRANO.kag.config.scWidth" align="center" size=%size text=%text color="0xFFFFFF"]
 [endmacro]
 
+[macro name="erasetext"]
+    [freeimage layer="0" page="back"]
+[endmacro]
 
 
 ;前景レイヤー中央にアイテム表示
@@ -81,9 +84,9 @@
 #
 [cm]
 @playse storage="shupan.mp3" 
-@chara_move name="nozomi" left="+=200"
+@chara_move name="nozomi" left="+=150"
 @freeimage layer="1"
-[image layer="1" x=200 y=100 width=300 height=300 storage=%storage time=300]
+[image layer="1" x=200 y=100 width=300 height=300 storage=%storage]
 @layopt layer="1" visible="true"
 [endmacro]
 
@@ -92,7 +95,11 @@
 #
 [cm]
 @layopt layer="1" visible="false"
-@chara_move name="nozomi" left="-=200"
+@chara_move name="nozomi" left="-=150"
+[endmacro]
+
+[macro name="showbackbtn"]
+[glink x=500 y=550 color="btn_01_yellow" text="メニューに戻る" target="backtitle"]
 [endmacro]
 
 ;タイトル画面へ移動
