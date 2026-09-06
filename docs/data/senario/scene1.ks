@@ -9,6 +9,8 @@
 ;メッセージウィンドウの表示
 @layopt layer=message0 visible=true
 
+
+
 ;
 ; 入店チャイム
 ;
@@ -28,13 +30,13 @@
 @chara_show name="nozomi"
 
 ;**** for debug *****
-;@jump target="q1c"
+;@jump target="punipuni"
 
 #のぞみ
 [dekamoji]いらっしゃいませ～[resetfont][p]
 
 ;BGM開始
-@playbgm storage="candybouquet.mp3" volume=25
+@thisplaybgm storage="candybouquet.mp3"
 
 #僕
 （手早く昼飯をカゴに入れて、レジに持っていく）[p]
@@ -56,6 +58,8 @@
 #のぞみ:serious
 このコーヒーはぁ……[p]
 ………[p]
+
+@playse storage="pi.mp3"
 ピッ[p]
 #のぞみ:smile2
 …【3.14151426……円】！[p]
@@ -482,6 +486,7 @@ BOOOOOOOOOOOOOOOOOO!!!!![p]
 脱プラスチックが叫ばれている時代じゃないかッ！[p]
 
 …だから[l][r]
+@playse storage="jajaan.mp3"
 [dekamoji]ポイントカードも餅にすればいい！[resetfont][p]
 
 #のぞみ:eee
@@ -501,7 +506,7 @@ BOOOOOOOOOOOOOOOOOO!!!!![p]
 #のぞみ
 はい！[r]
 店長に提案してきます！[p]
-
+@playse storage="shupan.mp3"
 @chara_hide name="nozomi"
 
 #主人公
@@ -530,11 +535,10 @@ BOOOOOOOOOOOOOOOOOO!!!!![p]
 
 
 *q3
-@jump storage="scene2.ks"
+;@jump storage="scene2.ks"
 
 ;
 ;ここで、閑話休題的に「のぞみちゃんのほっぺたぷにぷにイベント」
-;余力がなければカット
 ;
 *punipuni
 #のぞみ
@@ -547,28 +551,71 @@ BOOOOOOOOOOOOOOOOOO!!!!![p]
 のぞみちゃんのほっぺた[r]
 お餅みたいだし[p]
 
-#のぞみ
+#のぞみ:eee
 えーーーーっ！？[p]
 
 #僕
-さわりたくなっちゃう❤[p]
+さわりたくなっちゃう❤
+;---
+[choice text="ほっぺたをつっつく" target="punic" y=100]
+[choice text="（イベントスキップ）" target="puniskip" y=200]
+[s]
+;---
+*puniskip
+#僕
+……いや、やめとくか…[p]
+@jump target="gotoq3"
 
-ぷにぷにぷにぷに…[p]
-ぷにぷにぷにぷに…[p]
-ぷにぷにぷにぷに…[p]
+*punic
+#
+
+@chara_hide name="nozomi"
+@bg storage="ivntpuni.jpg"
+
+[macro name="quakepuni"]
+    @playse storage="petan.mp3" loop="true"
+    @quake layer="all" count="6" time="2000" hmax="100" vmax="0" wait="false"
+[endmacro]
+
+[delay speed=200]
+[quakepuni]
+ぷにぷにぷにぷにぷに…[stopse][p]
+[quakepuni]
+ぷにぷにぷにぷにぷに…[stopse][p]
+[quakepuni]
+ぷにぷにぷにぷにぷに…[stopse][p]
+[resetdelay]
 
 #のぞみ
-ひゃだぁ[r]
-くすぐったいですぅ～[p]
+ひょっとぉ……[r]
+ひゃめてくだひゃいよぉ〜～[p]
 
 #僕
-ぷにぷにぷにぷに…[p]
-ぷにぷにのラッシュだーーーーッ！！[p]
+[delay speed=200]
+[quakepuni]
+ぷにぷにぷにぷにぷに…[stopse][p]
+[resetdelay]
+
+@playse storage="petan.mp3" loop="true"
+@quake layer="all" count=20 time=1000 hmax=100 vmax=0 wait=false
+ぷにぷにぷにぷにぷにぷにぷにぷにぷにぷにぷにぷに[r]
+ぷにぷにぷにぷにぷにぷにぷにぷにぷにぷにぷにぷに[r]
+ぷにぷにぷにぷにぷにぷにぷにぷにぷにぷにぷにぷに[stopse][p]
+[quakepuni]
+ぷにぷにのラッシュだーーーーッ！！[stopse][p]
+
+#
 
 ;
 ;パシッSE
+@bg storage="bg_counter.jpg"
+@chara_show name="nozomi" face="ikari"
+@playse storage="tukkomi.mp3"
+@quake layer="all" count=4 time=600 hmax=100 vmax=0 wait=false
 #のぞみ
 いい加減にしないと、カスハラで訴えますよ！[p]
 新人店員だからと言って、あまりイジらないでくださいッ！[p]
 
+*gotoq3
+@jump target="q3_s2" storage="scene2.ks"
 [s]

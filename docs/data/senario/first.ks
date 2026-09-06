@@ -23,6 +23,8 @@
 [chara_face name="nozomi" face="ikari" storage="./chara/nzmikari.png"]
 [chara_face name="nozomi" face="kirari" storage="./chara/nzmkirari.png"]
 [chara_face name="nozomi" face="coffee" storage="./chara/nzmcoffee.png"]
+[chara_face name="nozomi" face="niyari" storage="./chara/nzmniyari.png"]
+[chara_face name="nozomi" face="hi" storage="./chara/nzmhi.png"]
 
 ;メッセージウィンドウの設定
 [position layer="message0" left=160 top=500 width=1000 height=200 page=fore visible=true]
@@ -38,7 +40,8 @@
 
 ; popopo設定　少しポップで明るい印象（三角波）
 [popopo type="none"]
-[popopo type="triangle" volume="40" frequency="E" octave="1" mode="interval" chara="のぞみ"]
+[popopo type="triangle" volume="40" frequency="E" octave="1" noplaychars="…、。！？" chara="のぞみ"]
+
 
 ;メッセージボックスは非表示
 @layopt layer="message0" visible=false
@@ -86,7 +89,7 @@
 @playse storage="shupan.mp3" 
 @chara_move name="nozomi" left="+=150"
 @freeimage layer="1"
-[image layer="1" x=200 y=100 width=300 height=300 storage=%storage]
+[image layer="1" x=200 y=100 width=360 height=360 storage=%storage]
 @layopt layer="1" visible="true"
 [endmacro]
 
@@ -98,6 +101,12 @@
 @chara_move name="nozomi" left="-=150"
 [endmacro]
 
+;BGMPLAY
+[macro name="thisplaybgm"]
+[playbgm storage=%storage volume=35]
+[endmacro]
+
+;メニューに戻るボタン
 [macro name="showbackbtn"]
 [glink x=500 y=550 color="btn_01_yellow" text="メニューに戻る" target="backtitle"]
 [endmacro]

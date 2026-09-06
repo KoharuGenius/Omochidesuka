@@ -20,9 +20,9 @@
 
 ;********
 ;for debug
-;@jump target="q4a"
+@jump target="q5"
 
-
+*q3_s2
 ; デュエルフラグを初期化（0 = 立っていない）
 [eval exp="f.duel_flag = 0"]
 
@@ -115,8 +115,8 @@
 そして…[p]
 
 *badend
-;SEパシーン、画面揺れ
-;@playse storage=".mp3"
+;ドカーンSE、画面揺れ
+@playse storage="dokan.mp3"
 #のぞみ:smile2
 [dekamoji]お客様にもお餅になってもらいます！！！[resetfont]
 @quake layer="all" count=5 vmax=100 time=500 wait="false"
@@ -145,7 +145,7 @@
 @chara_hide name="nozomi"
 
 ;SE
-;@playse storage=""
+@playse storage="cheen.mp3"
 #
 チーン♪
 @quake layer="all" count=2 vmax=100 time=500 wait="false"
@@ -167,13 +167,13 @@
 [cm]
 
 ;ゲームオーバー的SE
-;@playse storage=".mp3"
+@playse storage="sousou3.mp3"
 [erasetext]
 [disptext y=100 size=40 text="「お客様、お餅ですか？」"]
 [disptext y=200 size=30 text="【焼成エンド・顧客満足度★★★★★】"]
 [disptext y=300 size=20 text="※この後、スタッフがおいしくいただきました"]
 @trans layer="0" time=1500
-
+@wse
 ;エンド状況フラグ立て
 [eval exp="localStorage.setItem('ends_flag', (parseInt(localStorage.getItem('ends_flag') || 0) | 1))"]
 
@@ -197,16 +197,17 @@
 【おすすめの商品】と【お客の財布】をぶつけあう心理戦そのもの[p]
 ……つまり、[dekamoji]デュエル[resetfont]なんだよッ！[p]
 
+@fadeoutbgm time=1000
+
 せっかくカウンター越しに「お客と店員で対峙」するのなら…[r]
 そして、このお店のカードがお餅なら…[p]
 
 ;ジャーンSE
-;@playse storage=""
+@playse storage="jajaan.mp3"
 [dekamoji]お餅を使ってデュエルすればいい！[resetfont][p]
-;BGM停止
-@stopbgm
 
-#のぞみ:serious2
+
+#のぞみ:kirari
 ………！[p]
 な、なんだか面白そうですね！[p]
 どんなルールにするか、一緒に考えませんか？[p]
@@ -214,7 +215,7 @@
 #僕
 （あれ？意外とノッて来たぞ？）[p]
 ;熱血END用BGM開始
-;@playbgm storage=".mp3"
+@thisplaybgm storage="zangyousenshi.mp3"
 
 #のぞみ:smile2
 そうですね…！[p]
@@ -239,7 +240,7 @@
 【最高におめでたい気持ち】になった方が勝ち！[r]
 ……とか[p]
 
-#のぞみ:default
+#のぞみ:tere
 ポイントカード要素も加味した素晴らしいアイデアですね！[p]
 殺伐としたバトルTCGじゃなくて[r]
 和風世界のハートフルで斬新なゲームになると思いますっ！[p]
@@ -247,12 +248,16 @@
 #僕
 だろ？（ドヤ顔）[p]
 
-#のぞみ:serious
-タイトル思いつきました！[p]
-日本の伝統を大切にする…[l][r]
 ;
+@fadeoutbgm time=1000
+
+#のぞみ:serious
+タイトル思いつきました！[r]
+日本の伝統を大切にする…[p]
+
+chara_mod name="nozomi" face="kirari"
 ;ジャーンSE
-;@playse storage=""
+@playse storage="jajaan.mp3"
 [dekamoji]餅闘の愛国者たち（ペイトゥ・ペイトリオッツ）！[resetfont][p]
 
 #僕
@@ -266,19 +271,18 @@
 #僕
 （絶対誤解招くやつだ…）[p]
 
+@playse storage="gaan.mp3"
 #のぞみ:eee
 …ああっ、いけない！[p]
 #のぞみ:tere
 あまりにも楽しそうだから、色々膨らんじゃいましたぁ[p]
-
-;
-@stopbgm
 
 #僕
 お餅の話だけに[p]
 
 #のぞみ
 そうそう、膨らんじゃいます！[p]
+
 #のぞみ:smile2
 …って、[r]
 ちゃんと仕事の話になってますよね？[p]
@@ -287,7 +291,7 @@
 うん、どうすればお客がデュエル[r]
 …じゃなくって、お店に来たくなるかってことだよね？[p]
 
-@playbgm storage="candybouquet.mp3" volume=25
+@thisplaybgm storage="candybouquet.mp3"
 
 #のぞみ:serious2
 はい……！[p]
@@ -413,7 +417,7 @@
 #僕
 だろ？（ドヤ顔）[p]
 
-#のぞみ:smile2
+#のぞみ:kirari
 さきほどの「餅闘の愛国者たち（ペイトゥ・ペイトリオッツ）」[r]
 もう少し考えませんか[p]
 
@@ -423,7 +427,7 @@
 景気よく行こうぜ！[p]
 
 ;熱血END用BGM開始
-;@playbgm storage=".mp3"
+@thisplaybgm storage="zangyousenshi.mp3"
 
 #のぞみ:serious
 まず、【鏡餅カード】というのはどうでしょう？[p]
@@ -498,14 +502,14 @@
 #
 [cm]
 @chara_hide name="nozomi"
-@stopbgm
+@fadeoutbgm time = 1000
 
 ;
-@bg storage="black.jpg" time=1500
+@bg storage="black.jpg" time=500
 
 このあと滅茶苦茶、餅カードゲーム開発した[p]
 
-@wait time=1000
+@wait time=500
 
 ――そして、この夏、[p]
 餅カードゲーム[r]
@@ -515,12 +519,12 @@
 [cm]
 
 ;勇壮なSE
-;@playse storage=".mp3"
+@playse storage="mokuhyo.mp3"
 [erasetext]
 [disptext y=100 size=40 text="「お客様、カードはお餅でデュエルしましょう！」"]
 [disptext y=200 size=30 text="【熱血エンド・🔥MAX】"]
 @trans layer="0" time=1500
-
+@wse
 ;エンド状況フラグ立て
 [eval exp="localStorage.setItem('ends_flag', (parseInt(localStorage.getItem('ends_flag') || 0) | 2))"]
 
@@ -549,7 +553,7 @@
 #僕
 ははは…[r]
 (のぞみちゃんらしいや…)[p]
-@hideitemslide
+
 それじゃあ…
 [choice text="「🍄キノコ怪人しめじん」と書く" target="q5a" y=100]
 [choice text="僕の本名を書く" target="q5b" y=200]
@@ -560,8 +564,11 @@
 「🍄キノコ怪人しめじん」[r]
 ……っと[p]
 
-#のぞみ:serious2
+@hideitemslide
+
+#のぞみ
 ………[p]
+
 #のぞみ:ikari
 【🍄しめじん】は、キノコ怪人なんかじゃありませんっ！[p]
 
@@ -571,7 +578,7 @@
 ;画面左右揺れ
 ;怨霊SE
 ;@playse storage=".mp3"
-#のぞみ:serious2
+#のぞみ:niyari
 @quake count=4 time=1000 name="nozomi" hmax=80 vmax=0 wait="false"
 う～ら～め～し～や～っ！！[p]
 
@@ -665,7 +672,7 @@
 （そういえば、せっかくポイントカード作ったのに）[r]
 （全然来てなかったな…ははは…）[p]
 
-@playbgm storage="candybouquet.mp3" volume=25
+@thisplaybgm storage="candybouquet.mp3"
 
 （レジに立っているのは、のぞみちゃん…）[r]
 （…じゃなくて、中年の男性だった）[p]
@@ -675,7 +682,8 @@
 
 #店長
 あ、のぞみちゃんだったら、[r]
-事情があって、地元に帰っちゃったんだ[p]
+事情があって…[p]
+[dekamoji]地元に帰っちゃったんだ[resetfont][p]
 
 @pausebgm
 
@@ -697,6 +705,7 @@
 
 えっと……、「🍄キノコ怪人」…さん？[p]
 ポイントが一気に貯まったから、ウチの商品券と交換できるよ[p]
+
 100円分だけだけどな[r]
 悪いね[p]
 
@@ -739,7 +748,7 @@
 @wait time=1000
 
 ;ちょっとせつないSE
-;@playse storage=".mp3"
+@playse storage="wafu-syakuhachi.mp3"
 [erasetext]
 [disptext y=100 size=40 text="「お客様、🍄キノコ怪人ですか？」"]
 [disptext y=200 size=30 text="【想い出エンド・顧客満足度★☆☆☆☆】"]
@@ -747,7 +756,7 @@
 
 ;エンド状況フラグ立て
 [eval exp="localStorage.setItem('ends_flag', (parseInt(localStorage.getItem('ends_flag') || 0) | 4))"]
-
+@wse
 @jump target="gotomenu"
 
 
@@ -755,10 +764,12 @@
 #僕
 …書けたよ[p]
 
+@hideitemslide
+
 #のぞみ:default
 こうやって名前を書いてもらうと、なんだか不思議ですね[p]
 お客様のこと、ちょっと身近に感じます[r]
-字って、その人らしさが出るって言いますし[p]
+【字】って、その人らしさが出るって言いますし[p]
 
 #僕
 そう？[p]
@@ -802,7 +813,7 @@
 #僕
 徹夜で作ったりしないよね？[p]
 
-@hideslide
+@hideitemslide
 
 #のぞみ
 できるだけすぐお応えしたいので！[p]
@@ -845,7 +856,7 @@
 [dekamoji]いらっしゃいませ――[resetfont][p]
 
 ;BGM開始
-@playbgm storage="candybouquet.mp3" volume=25
+@thisplaybgm storage="candybouquet.mp3"
 
 #僕
 あれっ？僕の名前覚えてくれてたんだ[p]
@@ -870,7 +881,7 @@
 えーーーーっ！？[p]
 
 ;のぞみ真顔
-@chara_mod name="nozomi" face="serious2"
+@chara_mod name="nozomi" face="serious"
 
 #僕
 今、持っているのは……[p]
@@ -882,11 +893,11 @@
 ;
 ;餅の山表示
 @chara_hide name="nozomi"
-@showcenteritem storage="mochi.jpg"
+@showcenteritem storage="kirimochi_yama.jpg"
 
 ;画面揺れ
 ;ドーンSE
-@playse storage=".mp3"
+@playse storage="doon.mp3"
 @quake count=3 time=800 vmax=100 wait="true"
 #僕
 [dekamoji]のぞみちゃんへの僕の【気持ち】だッ！！[resetfont][p]
@@ -915,7 +926,7 @@
 [p]
 
 ;※照れ顔の立ち絵に差し替え
-#のぞみ
+#のぞみ:hi
 ……はい
 @wait time=1000
 [p]
@@ -934,12 +945,12 @@
 [cm]
 
 ;ハッピーエンド的SE
-;@playse storage=".mp3"
+@playse storage="victory.mp3"
 [erasetext]
 [disptext y=100 size=40 text="「お客様、私をお持ちになりませんか？」"]
 [disptext y=200 size=30 text="【ロマンスエンド・❤MAX!】"]
 @trans layer="0" time=1500
-
+@wse
 ;エンド状況フラグ立て
 [eval exp="localStorage.setItem('ends_flag', (parseInt(localStorage.getItem('ends_flag') || 0) | 8))"]
 
