@@ -35,11 +35,12 @@ tf.end_stars = '★'.repeat(clearCount) + '☆'.repeat(4 - clearCount);
 ; --- 画面に★を表示 ---
 @freeimage layer="0"
 @layopt layer="0" visible="true"
-@image storage="black.jpg" layer="0" page="fore" visible="true" x="300" y="550" width="600" height="150" name="my_box"
+@image storage="black.jpg" layer="0" page="fore" x="300" y="550" width="640" height="150" name="my_box"
 @filter name="my_box" opacity=70
-[ptext layer="0" x=320 y=570 name="star_text" text="&'エンド達成状況：' + tf.end_stars" size=30 color="white" shadow="0x888888"]
-[glink x=400 y=620 color="btn_05_yellow" text="エンド達成状況リセット" target="do_reset"]
-[ptext layer="0" x=400 y=650 text="↑確認画面は出ません(笑)慎重に↑" size=15 color="white"  shadow="0x888888"]
+[ptext layer="0" x=0 y=570 width="&TYRANO.kag.config.scWidth" align="center" text="&'エンド達成状況：' + tf.end_stars" size=30 color="white" shadow="0x888888"]
+[ptext layer="0" x=480 y=620 text="★を消す。確認画面は出ません(笑)→" size=13 color="white"  shadow="0x888888"]
+[glink x=700 y=620 size=12 color="btn_05_white" text="リセット" target="do_reset"]
+
 [s]
 
 ; --- エンド達成処理削除実行処理 ---

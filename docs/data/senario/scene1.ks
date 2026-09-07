@@ -4,11 +4,11 @@
 [clearfix]
 [start_keyconfig]
 
-[bg storage="black.jpg" time="100"]
+@bg storage="black.jpg" time="100"
 
 ;メッセージウィンドウの表示
-@layopt layer=message0 visible=true
-
+@layopt layer="message0" visible="true"
+@current layer="message0"
 
 
 ;

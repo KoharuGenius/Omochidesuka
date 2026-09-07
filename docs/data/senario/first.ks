@@ -1,7 +1,6 @@
 ;一番最初に呼び出されるファイル
 
 [title name="お客様、当店のカードはおもちですか"]
-
 [stop_keyconfig]
 
 
@@ -120,6 +119,6 @@
 ;入店チャイム
 *sub_entershop
 @playse storage="entershop.mp3"
-[wse]
+@wait time=2000
 @playse storage="entershop.mp3"
 [return]

@@ -173,7 +173,7 @@
 [disptext y=200 size=30 text="【焼成エンド・顧客満足度★★★★★】"]
 [disptext y=300 size=20 text="※この後、スタッフがおいしくいただきました"]
 @trans layer="0" time=1500
-@wse
+;@wse
 ;エンド状況フラグ立て
 [eval exp="localStorage.setItem('ends_flag', (parseInt(localStorage.getItem('ends_flag') || 0) | 1))"]
 
@@ -524,7 +524,7 @@ chara_mod name="nozomi" face="kirari"
 [disptext y=100 size=40 text="「お客様、カードはお餅でデュエルしましょう！」"]
 [disptext y=200 size=30 text="【熱血エンド・🔥MAX】"]
 @trans layer="0" time=1500
-@wse
+;@wse
 ;エンド状況フラグ立て
 [eval exp="localStorage.setItem('ends_flag', (parseInt(localStorage.getItem('ends_flag') || 0) | 2))"]
 
@@ -756,7 +756,7 @@ chara_mod name="nozomi" face="kirari"
 
 ;エンド状況フラグ立て
 [eval exp="localStorage.setItem('ends_flag', (parseInt(localStorage.getItem('ends_flag') || 0) | 4))"]
-@wse
+;@wse
 @jump target="gotomenu"
 
 
@@ -950,7 +950,7 @@ chara_mod name="nozomi" face="kirari"
 [disptext y=100 size=40 text="「お客様、私をお持ちになりませんか？」"]
 [disptext y=200 size=30 text="【ロマンスエンド・❤MAX!】"]
 @trans layer="0" time=1500
-@wse
+;@wse
 ;エンド状況フラグ立て
 [eval exp="localStorage.setItem('ends_flag', (parseInt(localStorage.getItem('ends_flag') || 0) | 8))"]
 
@@ -958,11 +958,11 @@ chara_mod name="nozomi" face="kirari"
 
 *gotomenu
 @wait time=2000
-
 [showbackbtn]
 [s]
 
 *backtitle
+@stopse
 @freeimage layer="0"
 @layopt layer="0"
 @layopt layer="message0" visible=false
