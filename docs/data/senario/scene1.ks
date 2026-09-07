@@ -10,6 +10,7 @@
 @layopt layer="message0" visible="true"
 @current layer="message0"
 
+@showmenubutton
 
 ;
 ; 入店チャイム
