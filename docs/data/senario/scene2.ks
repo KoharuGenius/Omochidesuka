@@ -215,7 +215,7 @@
 #僕
 （あれ？意外とノッて来たぞ？）[p]
 ;熱血END用BGM開始
-@thisplaybgm storage="zangyousenshi.mp3"
+@playbgm storage="zangyousenshi.mp3"
 
 #のぞみ:smile2
 そうですね…！[p]
@@ -291,7 +291,7 @@ chara_mod name="nozomi" face="kirari"
 うん、どうすればお客がデュエル[r]
 …じゃなくって、お店に来たくなるかってことだよね？[p]
 
-@thisplaybgm storage="candybouquet.mp3"
+@playbgm storage="candybouquet.mp3"
 
 #のぞみ:serious2
 はい……！[p]
@@ -427,7 +427,7 @@ chara_mod name="nozomi" face="kirari"
 景気よく行こうぜ！[p]
 
 ;熱血END用BGM開始
-@thisplaybgm storage="zangyousenshi.mp3"
+@playbgm storage="zangyousenshi.mp3"
 
 #のぞみ:serious
 まず、【鏡餅カード】というのはどうでしょう？[p]
@@ -672,7 +672,7 @@ chara_mod name="nozomi" face="kirari"
 （そういえば、せっかくポイントカード作ったのに）[r]
 （全然来てなかったな…ははは…）[p]
 
-@thisplaybgm storage="candybouquet.mp3"
+@playbgm storage="candybouquet.mp3"
 
 （レジに立っているのは、のぞみちゃん…）[r]
 （…じゃなくて、中年の男性だった）[p]
@@ -856,7 +856,7 @@ chara_mod name="nozomi" face="kirari"
 [dekamoji]いらっしゃいませ――[resetfont][p]
 
 ;BGM開始
-@thisplaybgm storage="candybouquet.mp3"
+@playbgm storage="candybouquet.mp3"
 
 #僕
 あれっ？僕の名前覚えてくれてたんだ[p]
